@@ -1,5 +1,9 @@
 import React from "react";
 import axios from "axios";
+import "./Weather.css";
+import Search from "./Search";
+import Api from "./Api";
+
 
 
 export default function Weather() {
