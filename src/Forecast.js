@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Api from "./Api";
-import DateUtil from "./DateUtil";
+import DatePut from "./DatePut";
 import "./Forecast.css";
 import WeatherIcon from "./WeatherIcon";
 
@@ -24,15 +24,13 @@ export default class Forecast extends Component {
 
     axios.get(url).then((response) => {
       let forecast = response.data.list;
-      // The API returns the forecast every 3 hour, so we are exrtacting
-      // the weather for every 24 hours which 8 times 3 hour cycles
       let dailyForecast = [7, 15, 23, 31, 39].map((index) => {
         return {
           description: forecast[index].weather[0].main,
           icon: forecast[index].weather[0].icon,
           precipitation: Math.round(forecast[index].main.humidity) + "%",
           temperature: Math.round(forecast[index].main.temp),
-          day: new DateUtil(new Date(forecast[index].dt * 1000)).day(true),
+          day: new DatePut(new Date(forecast[index].dt * 1000)).day(true),
           wind: Math.round(forecast[index].wind.speed) + "km/h",
         };
       });

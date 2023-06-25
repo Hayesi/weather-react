@@ -11,7 +11,7 @@ import Forecast from "./Forecast";
 
 export default class Weather extends Component {
   static propTypes = {
-    city: propTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
   };
 
   state = {
