@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Cities from "cities";
+import PropTypes from "prop-types";
 import axios from "axios";
 import "./Weather.css";
 import Search from "./Search";
@@ -10,8 +10,8 @@ import WeatherIcon from "./WeatherIcon";
 import Forecast from "./Forecast";
 
 export default class Weather extends Component {
-  static Cities = {
-    city: Cities.string.isRequired,
+  static propTypes = {
+    city: propTypes.string.isRequired,
   };
 
   state = {
